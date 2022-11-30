@@ -1,7 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
 }
 
 ul {
@@ -14,4 +17,64 @@ a {
 
 button {
   outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+html,
+body {
+  background-color: var(--color-bg-main);
+  color: var(--text-black);
+}
+:root {
+  --color-primary: #016478;
+  --color-secondry: #47c5a6;
+
+  --color-bg-main: #e9f2f3;
+  --color-bg: #b0d4e149;
+
+  --text-black: #1e1e1e;
+  --text-white: #fff;
+  --text-gray-dark: #626262;
+  --text-gray-light: #93a2ab;
+
+  --icon-bg: #e4ebeab2;
+  --text-light-primary: hsla(0, 0%, 74%, 0.514);
+
+  /* --text-light-secondry: #d7d7d7; */
+  /* --input-field-color: #f9f9fa; */
+
+  --color-danger: #9a0011;
+  --color-danger-bg: #fbedef;
+  --color-danger-bg-dark: #cbafb7;
+
+  --color-success: #04b474;
+  -color-success-bg: #c3d5b9;
+  --color-success-bg-dark: #b6ceac;
+
+  --border-radius: 0.5rem;
+  --card-radius: 0.8rem;
+
+  /* Media quories */
+  --lg-device: 1280px;
+  --md-device-tablet: 980px;
+  --md-device: 680px;
+  --sm-device: 380px;
+
+  /* margin and padding throught the container */
+  --transition: all ease 0.5s;
+  --px-2: 2rem;
+  --px-3: 3rem;
+
+  --py-2: 2rem;
+  --py-3: 3rem;
+
+  --mt-1: 1rem;
+  --mt-2: 2rem;
+  --mt-3: 3rem;
+}
+
+input {
+  outline: none;
+  border: none;
 }

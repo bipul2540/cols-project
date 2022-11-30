@@ -1,9 +1,10 @@
 import { useRoutes } from "react-router-dom";
 import Home from "./pages/home page/Home";
-import SignUp from "./pages/create account page/SignUp";
+import SignUp from "./pages/signup page/SignUp";
 import Login from "./pages/login page/Login";
 import { PrivateRoutes } from "./utils/PrivateRoutes";
 import { useUser } from "./utils/useUser";
+import AuthLandingPage from "./pages/AuthLandingPage";
 
 function App() {
   const user = useUser();
@@ -27,12 +28,11 @@ function App() {
 
     {
       path: "/auth",
-      element: <SignUp />,
-
+      element: <AuthLandingPage />,
       children: [
         {
           path: "signup",
-          element: <h1>Sign up</h1>,
+          element: <SignUp />,
         },
         {
           path: "login",

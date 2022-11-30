@@ -1,0 +1,122 @@
+.main__container {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  margin: 0 auto;
+  margin-top: 2rem;
+  background-color: var(--text-white);
+  //   padding: 2rem;
+  border-radius: var(--card-radius);
+
+  .heading {
+    border-bottom: 1px solid var(--text-light-primary);
+    padding: 1rem 2rem;
+    font-size: 1.5rem;
+  }
+
+  @media (max-width: 1280px) {
+    width: 50%;
+  }
+
+  @media (max-width: 980px) {
+    width: 60%;
+  }
+
+  @media (max-width: 680px) {
+    width: 70%;
+  }
+
+  @media (max-width: 380px) {
+    width: 80%;
+  }
+
+  .form__container {
+    margin-top: 1rem;
+    padding: 1rem 2rem 1rem 2rem;
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+
+      .form__input {
+        display: flex;
+        flex-direction: column;
+        margin: 2px 0;
+
+        label {
+          font-weight: bold;
+          font-size: 0.8rem;
+        }
+
+        input {
+          padding: 0.8rem 1rem;
+          border-radius: var(--border-radius);
+          background-color: var(--color-bg);
+          font-weight: 400;
+          font-size: 1rem;
+          margin-top: 0.5rem;
+        }
+        :focus {
+          border: 1px solid var(--color-primary);
+          box-shadow: 0 0 8px var(--color-primary);
+        }
+      }
+
+      .signup__btn {
+        margin-top: 0.5rem;
+      }
+    }
+  }
+}
+
+.other__signup__options {
+  padding: 0 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 1rem;
+
+  p {
+    color: var(--text-gray-light);
+    font-size: 0.8rem;
+  }
+
+  .icons {
+    display: flex;
+    gap: 2rem;
+    margin-top: 0.5rem;
+    margin-top: 1rem;
+
+    .icon__div {
+      padding: 0.5rem;
+      background-color: antiquewhite;
+      border-radius: 5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--icon-bg);
+      cursor: pointer;
+    }
+
+    .icon {
+      font-size: 1.5rem;
+      color: var(--color-secondry);
+      transition: var(--transition);
+    }
+
+    .icon:hover {
+      color: var(--color-primary);
+    }
+  }
+}
+
+.input__err {
+  border: 1px solid var(--color-danger);
+  box-shadow: 0 0 8px var(--color-danger);
+}
+
+.form__err__msg {
+  color: red;
+  font-size: 0.8rem;
+  margin-top: 3px;
+}
