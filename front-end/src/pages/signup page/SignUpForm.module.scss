@@ -23,11 +23,11 @@
   }
 
   @media (max-width: 680px) {
-    width: 70%;
+    width: 80%;
   }
 
   @media (max-width: 380px) {
-    width: 80%;
+    width: 90%;
   }
 
   .form__container {
@@ -49,11 +49,11 @@
         }
 
         input {
-          padding: 0.8rem 1rem;
+          padding: 0.7rem 1rem;
           border-radius: var(--border-radius);
           background-color: var(--color-bg);
           font-weight: 400;
-          font-size: 1rem;
+          // font-size: 1rem;
           margin-top: 0.5rem;
         }
         :focus {
@@ -116,7 +116,7 @@
 }
 
 .form__err__msg {
-  color: red;
+  color: var(--color-danger);
   font-size: 0.8rem;
   margin-top: 3px;
 }

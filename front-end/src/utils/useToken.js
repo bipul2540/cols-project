@@ -1,6 +1,9 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { signupToken } from "./../state/authFeatures/signupSlice";
 
 export const useToken = () => {
+  // const dispatch = useDispatch();
   const [token, setTokenInternal] = useState(() => {
     return localStorage.getItem("token");
   });

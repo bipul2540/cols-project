@@ -40,17 +40,17 @@ body {
 
   --icon-bg: #e4ebeab2;
   --text-light-primary: hsla(0, 0%, 74%, 0.514);
+  --text-light-secondry: #919191;
 
-  /* --text-light-secondry: #d7d7d7; */
   /* --input-field-color: #f9f9fa; */
 
-  --color-danger: #9a0011;
+  --color-danger: #f91f1f;
   --color-danger-bg: #fbedef;
   --color-danger-bg-dark: #cbafb7;
 
   --color-success: #04b474;
-  -color-success-bg: #c3d5b9;
-  --color-success-bg-dark: #b6ceac;
+  --color-success-bg: #d8f4e6;
+  --color-success-bg-dark: #e6fbde;
 
   --border-radius: 0.5rem;
   --card-radius: 0.8rem;

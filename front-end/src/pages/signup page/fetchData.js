@@ -1,24 +1,27 @@
 import axios from "axios";
+import { useDispatch } from "react-redux";
 
-export const sendSignupData = async ({
+export const sendSignupData = async (
   name,
   email,
   password,
-  confirmPassword,
-}) => {
-  const token = await axios
+  confirmPassword
+) => {
+  console.log(name, email, password);
+
+  const data = await axios
     .post("http://localhost:8080/api/signup", {
       name: name,
       email: email,
       password: password,
       confirmPassword: confirmPassword,
     })
-    .then((response) => {
-      const { token } = response.data;
+    .then((reponse) => {
+      return reponse.data;
     })
     .catch((e) => {
-      console.log(e);
+      return e.response.data;
     });
-
-  return token;
+  console.log(data);
+  return data;
 };

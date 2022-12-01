@@ -5,8 +5,18 @@ import { useFormik } from "formik";
 import { userSchema } from "../../utils/Input validations/SignupForm";
 import SignupLogo from "./SignupLogo";
 import { sendSignupData } from "./fetchData";
+import ErrorInfo from "../../components/ErrorInfo";
+
+import { useDispatch } from "react-redux";
+import {
+  signupError,
+  signupSuccess,
+} from "../../state/authFeatures/signupSlice";
+import { useToken } from "../../utils/useToken";
 
 const SignUpForm = () => {
+  const [, setToken] = useToken();
+  const dispatch = useDispatch();
   const initialValues = {
     name: "",
     email: "",
@@ -26,8 +36,16 @@ const SignUpForm = () => {
           values.password,
           values.confirmPassword
         );
+        const res = data;
 
-        console.log(data);
+        if (res.message) {
+          console.log(res.message);
+          dispatch(signupError(true));
+        }
+        if (res.token) {
+          setToken(res.token);
+          dispatch(signupSuccess(true));
+        }
       },
     });
 
@@ -116,7 +134,11 @@ const SignUpForm = () => {
             </div>
 
             <div className={styles.signup__btn}>
-              <Button btnText={"Sign Up"} className='btn-secondry' />
+              <Button
+                btnText={"Sign Up"}
+                className='btn-secondry'
+                type={"submit"}
+              />
             </div>
           </form>
         </div>
