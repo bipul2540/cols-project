@@ -18,11 +18,11 @@ const SignUp = () => {
   const isSuccess = useSelector((state) => state.signup.isSignupSuccess);
   const isPopup = useSelector((state) => state.signup.OtpPagePopup);
 
-  useEffect(() => {
-    console.log(isError);
-    console.log(("isSuccess", isSuccess));
-    console.log(("isPopup, ", isPopup));
-  }, [isError, isSuccess, isPopup]);
+  // useEffect(() => {
+  //   console.log(isError);
+  //   console.log(("isSuccess", isSuccess));
+  //   console.log(("isPopup, ", isPopup));
+  // }, [isError, isSuccess, isPopup]);
 
   return (
     <Main>
@@ -33,7 +33,11 @@ const SignUp = () => {
       />
 
       {isError && isSuccess === false ? <ErrorInfo Message /> : ""}
-      {isSuccess ? <SuccessInfo Message /> : ""}
+      {isSuccess ? (
+        <SuccessInfo Message='your account has been successfully created' />
+      ) : (
+        ""
+      )}
 
       <SignUpForm />
       {isPopup ? <SignupOtpVerifyPage /> : ""}

@@ -32,23 +32,28 @@ const SignUpForm = () => {
       validationSchema: userSchema,
 
       onSubmit: async (values, action) => {
-        const data = await sendSignupData(
+        await sendSignupData(
           values.name,
           values.email,
           values.password,
           values.confirmPassword
-        );
-        const res = data;
-
-        if (res.message) {
-          console.log(res.message);
-          dispatch(signupError(true));
-        }
-        if (res.token) {
-          setToken(res.token);
-          dispatch(signupSuccess(true));
-          dispatch(OtpPagePopup(true));
-        }
+        )
+          .then((res) => {
+            if (res.message) {
+              console.log(res.message);
+              dispatch(signupError(true));
+            }
+            if (res.token) {
+              setToken(res.token);
+              dispatch(signupSuccess(true));
+              setTimeout(() => {
+                dispatch(OtpPagePopup(true));
+              }, 5000);
+            }
+          })
+          .catch((e) => {
+            console.log(e);
+          });
       },
     });
 
