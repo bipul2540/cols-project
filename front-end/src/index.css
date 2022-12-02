@@ -23,26 +23,25 @@ button {
 
 html,
 body {
-  background-color: var(--color-bg-main);
-  color: var(--text-black);
+  background-color: #e9f2f3;
+  color: #474646;
 }
 :root {
   --color-primary: #016478;
   --color-secondry: #47c5a6;
 
-  --color-bg-main: #e9f2f3;
-  --color-bg: #b0d4e149;
-
+  /* TEXT COLORS */
   --text-black: #1e1e1e;
   --text-white: #fff;
   --text-gray-dark: #626262;
-  --text-gray-light: #93a2ab;
+  --text-gray-light: #919191;
+  --text-gray-very-light: #bec3c3;
+  /* TEXT COLORS END */
 
-  --icon-bg: #e4ebeab2;
-  --text-light-primary: hsla(0, 0%, 74%, 0.514);
-  --text-light-secondry: #919191;
-
-  /* --input-field-color: #f9f9fa; */
+  --input-bg: #f6f6f6;
+  --icon-bg: hsla(171, 15%, 91%, 0.698);
+  --color-h1: #474646;
+  --color-border: hsla(0, 0%, 74%, 0.514);
 
   --color-danger: #f91f1f;
   --color-danger-bg: #fbedef;

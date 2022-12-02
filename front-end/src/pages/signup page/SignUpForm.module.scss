@@ -10,8 +10,10 @@
 
   .heading {
     border-bottom: 1px solid var(--text-light-primary);
-    padding: 1rem 2rem;
+    padding: 1rem var(--px-2);
     font-size: 1.5rem;
+    border-bottom: 1px solid var(--color-border);
+    color: var(--color-h1);
   }
 
   @media (max-width: 1280px) {
@@ -31,12 +33,12 @@
   }
 
   .form__container {
-    margin-top: 1rem;
-    padding: 1rem 2rem 1rem 2rem;
+    // margin-top: 1rem;
+    padding: 1rem var(--px-2);
     form {
       display: flex;
       flex-direction: column;
-      gap: 0.6rem;
+      gap: 0.8rem;
 
       .form__input {
         display: flex;
@@ -51,7 +53,7 @@
         input {
           padding: 0.7rem 1rem;
           border-radius: var(--border-radius);
-          background-color: var(--color-bg);
+          background-color: var(--input-bg);
           font-weight: 400;
           // font-size: 1rem;
           margin-top: 0.5rem;

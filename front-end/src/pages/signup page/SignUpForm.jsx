@@ -9,10 +9,12 @@ import ErrorInfo from "../../components/ErrorInfo";
 
 import { useDispatch } from "react-redux";
 import {
+  OtpPagePopup,
   signupError,
   signupSuccess,
 } from "../../state/authFeatures/signupSlice";
 import { useToken } from "../../utils/useToken";
+import { authData } from "../../state/authFeatures/userAuthSlice";
 
 const SignUpForm = () => {
   const [, setToken] = useToken();
@@ -45,14 +47,17 @@ const SignUpForm = () => {
         if (res.token) {
           setToken(res.token);
           dispatch(signupSuccess(true));
+          dispatch(OtpPagePopup(true));
         }
       },
     });
 
+  dispatch(authData({ email: values.email }));
+
   return (
     <>
       <div className={styles.main__container}>
-        <h1 className={styles.heading}>Create an Account</h1>
+        <h1 className={styles.heading}>Create an account</h1>
 
         <div className={styles.form__container}>
           <form action='' onSubmit={handleSubmit}>

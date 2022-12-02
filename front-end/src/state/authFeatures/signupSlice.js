@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   isSignupError: false,
   isSignupSuccess: false,
+  OtpPagePopup: false,
   token: "",
 };
 
@@ -17,11 +18,16 @@ export const signupSlice = createSlice({
     signupSuccess: (state, action) => {
       state.isSignupSuccess = action.payload;
     },
+
+    OtpPagePopup: (state, action) => {
+      state.OtpPagePopup = action.payload;
+    },
     signupToken: (state, action) => {
       state.signupToken = action.payload;
     },
   },
 });
 
-export const { signupError, signupSuccess, signupToken } = signupSlice.actions;
+export const { signupError, signupSuccess, OtpPagePopup, signupToken } =
+  signupSlice.actions;
 export default signupSlice.reducer;

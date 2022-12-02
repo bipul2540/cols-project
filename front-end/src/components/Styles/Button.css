@@ -2,13 +2,10 @@
   padding: 0.5rem 1rem;
   border-radius: var(--border-radius);
   margin-left: 1rem;
-  border: 1px solid var(--text-light-gray);
-  background-color: var(--color-primary);
   color: var(--text-black);
   transition: var(--transition);
-  border: 1px solid var(--text-gray-light);
+  border: 1px solid var(--color-border);
   background-color: transparent;
-
   display: flex;
   align-items: center;
 }
@@ -16,7 +13,7 @@
 .btn-primary:hover {
   color: var(--text-white);
   background-color: var(--color-primary);
-  border: 1px solid var(--text-gray-dark);
+  border: 1px solid var(--color-border);
 }
 
 .btn-secondry {

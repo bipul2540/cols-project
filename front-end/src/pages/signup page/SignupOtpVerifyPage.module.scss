@@ -1,0 +1,106 @@
+.mainContainer {
+  position: absolute;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.884);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .card__container {
+    margin-top: -10rem;
+    border: 1.5px solid var(--color-border);
+    border-radius: var(--border-radius);
+    padding: 1rem;
+    background-color: #ffffffcc;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+    .close__icon {
+      .icon {
+        color: var(--text-gray-light);
+        cursor: pointer;
+      }
+
+      :hover {
+        color: var(--color-primary);
+      }
+    }
+
+    .info {
+      text-align: center;
+      .info__heading {
+        color: var(--color-h1);
+      }
+
+      .info__text {
+        margin-top: 1rem;
+        display: flex;
+        flex-direction: column;
+        .info__text_email {
+          margin-top: 0.5rem;
+          font-size: 0.9rem;
+          font-weight: 700;
+        }
+      }
+    }
+
+    .form__container {
+      display: flex;
+      justify-content: center;
+      margin-top: 1rem;
+      .form {
+        display: flex;
+        gap: 0.8rem;
+        .form__input {
+          border: 2px solid var(--color-secondry);
+          width: 3rem;
+          height: 3rem;
+          border-radius: 10rem;
+          background-color: var(--input-bg);
+          text-align: center;
+          font-weight: bold;
+          font-size: 1.5rem;
+          color: var(--color-primary);
+        }
+      }
+    }
+    .timer__conatainer {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-top: 1rem;
+
+      .timer {
+        color: var(--color-danger);
+      }
+
+      p {
+        font-size: 0.8rem;
+        margin-top: 0.5rem;
+        small {
+          color: var(--color-primary);
+          font-weight: bold;
+          cursor: pointer;
+          margin-left: 0.5rem;
+          font-size: 0.8rem;
+        }
+      }
+    }
+
+    .btn__container {
+      display: flex;
+      justify-content: center;
+      margin-top: 1rem;
+
+      .btn {
+        width: 30%;
+        padding: 0.6rem 1rem;
+        background-color: var(--color-primary);
+        color: var(--text-white);
+        border-radius: var(--border-radius);
+      }
+    }
+  }
+}

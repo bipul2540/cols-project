@@ -7,6 +7,7 @@ import SignUpForm from "./SignUpForm";
 import { useSelector } from "react-redux";
 import { useToken } from "../../utils/useToken";
 import SuccessInfo from "../../components/SuccessInfo";
+import SignupOtpVerifyPage from "./SignupOtpVerifyPage";
 
 const Main = styled.div`
   position: relative;
@@ -15,11 +16,13 @@ const Main = styled.div`
 const SignUp = () => {
   const isError = useSelector((state) => state.signup.isSignupError);
   const isSuccess = useSelector((state) => state.signup.isSignupSuccess);
+  const isPopup = useSelector((state) => state.signup.OtpPagePopup);
 
   useEffect(() => {
     console.log(isError);
     console.log(("isSuccess", isSuccess));
-  }, [isError, isSuccess]);
+    console.log(("isPopup, ", isPopup));
+  }, [isError, isSuccess, isPopup]);
 
   return (
     <Main>
@@ -30,9 +33,10 @@ const SignUp = () => {
       />
 
       {isError && isSuccess === false ? <ErrorInfo Message /> : ""}
-      {isSuccess? <SuccessInfo Message /> : ""}
+      {isSuccess ? <SuccessInfo Message /> : ""}
 
       <SignUpForm />
+      {isPopup ? <SignupOtpVerifyPage /> : ""}
     </Main>
   );
 };
