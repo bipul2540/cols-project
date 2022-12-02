@@ -36,7 +36,7 @@ function App() {
         },
         {
           path: "login",
-          element: <h1>Login</h1>,
+          element: <Login />,
         },
       ],
     },

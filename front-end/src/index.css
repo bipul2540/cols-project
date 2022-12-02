@@ -76,4 +76,10 @@ body {
 input {
   outline: none;
   border: none;
+
+  padding: 0.7rem 1rem;
+  border-radius: var(--border-radius);
+  background-color: var(--input-bg);
+  font-weight: 400;
+  margin-top: 0.5rem;
 }
