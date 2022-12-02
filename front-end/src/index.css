@@ -83,3 +83,8 @@ input {
   font-weight: 400;
   margin-top: 0.5rem;
 }
+
+label {
+  font-weight: bold;
+  font-size: 0.8rem;
+}

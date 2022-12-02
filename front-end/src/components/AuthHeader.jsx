@@ -22,13 +22,13 @@ const P = styled.p`
   color: var(--text-gray-dark);
 `;
 
-const AuthHeader = ({ infoText, btnText, btnClassName }) => {
+const AuthHeader = ({ infoText, btnText, btnClassName, click }) => {
   return (
     <Main>
       <Logo />
       <Info>
         <P>{infoText}</P>
-        <Button className={btnClassName} btnText={btnText} />
+        <Button className={btnClassName} btnText={btnText} click={click}  />
       </Info>
     </Main>
   );

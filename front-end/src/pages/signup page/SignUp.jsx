@@ -8,21 +8,21 @@ import { useSelector } from "react-redux";
 import { useToken } from "../../utils/useToken";
 import SuccessInfo from "../../components/SuccessInfo";
 import SignupOtpVerifyPage from "./SignupOtpVerifyPage";
+import { useNavigate } from "react-router-dom";
 
 const Main = styled.div`
   position: relative;
 `;
 
 const SignUp = () => {
+  const navigate = useNavigate();
   const isError = useSelector((state) => state.signup.isSignupError);
   const isSuccess = useSelector((state) => state.signup.isSignupSuccess);
   const isPopup = useSelector((state) => state.signup.OtpPagePopup);
 
-  // useEffect(() => {
-  //   console.log(isError);
-  //   console.log(("isSuccess", isSuccess));
-  //   console.log(("isPopup, ", isPopup));
-  // }, [isError, isSuccess, isPopup]);
+  const goToLoginPageClick = () => {
+    navigate("/auth/login");
+  };
 
   return (
     <Main>
@@ -30,6 +30,7 @@ const SignUp = () => {
         infoText={"Already have an account?"}
         btnText={"Sign In"}
         btnClassName={"btn-primary"}
+        click={goToLoginPageClick}
       />
 
       {isError && isSuccess === false ? <ErrorInfo Message /> : ""}

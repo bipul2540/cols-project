@@ -7,7 +7,7 @@ export const loginRoute = {
   method: "post",
 
   handler: async (req, res) => {
-    const { email, password, verificationString } = req.body;
+    const { email, password } = req.body;
 
     const db = await getDbConnection("cols");
 
