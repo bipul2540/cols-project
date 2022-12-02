@@ -1,12 +1,17 @@
 import axios from "axios";
 
 export const sendLoginData = async (email, password) => {
-  await axios
-    .post("http://localhost:8080/api/signin", { email, password })
+  const res = await axios
+    .post("http://localhost:8080/api/login", {
+      email: email,
+      password: password,
+    })
     .then((res) => {
-      console.log("hey this is Login", res);
+      return res.data;
     })
     .catch((e) => {
-      console.log("Hey this is Error: ", e);
+      return e.response.data;
     });
+
+  return res;
 };

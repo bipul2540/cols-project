@@ -14,9 +14,9 @@ export const loginRoute = {
     const user = await db.collection("users").findOne({ email });
 
     if (!user) {
-      return res
-        .status(401)
-        .json({ message: "user not found please create, Account" });
+      return res.status(401).json({
+        message: "This Email id is not registered with us",
+      });
     }
     if (user) {
       await db.collection("users").findOneAndUpdate(
@@ -38,7 +38,9 @@ export const loginRoute = {
     );
 
     if (!isPassCorrect) {
-      return res.status(401).json({ message: "password is incorrect" });
+      return res
+        .status(401)
+        .json({ message: "Either email address or password is incorrect" });
     }
 
     jwt.sign(

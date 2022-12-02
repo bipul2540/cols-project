@@ -7,26 +7,47 @@ import { useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import { userSchema } from "../../utils/Input validations/LoginForm";
 import { sendLoginData } from "./loginAxios";
+import { useToken } from "../../utils/useToken";
+import {
+  setErrorMessage,
+  showErrorPage,
+} from "../../state/authFeatures/loginSlice";
+import { useDispatch } from "react-redux";
 
 const LoginForm = () => {
+  const [, setToken] = useToken();
+  const navigate = useNavigate();
+
+  const dispatch = useDispatch();
   const initialValues = {
     email: "",
     password: "",
   };
-  const { values, errors, handleBlur, handleChange, handleSubmit, touched } = useFormik({
-    initialValues: initialValues,
-    validationSchema: userSchema,
+  const { values, errors, handleBlur, handleChange, handleSubmit, touched } =
+    useFormik({
+      initialValues: initialValues,
+      validationSchema: userSchema,
 
-    onSubmit: async (values, action) => {
-      await sendLoginData(values.email, values.password)
-        .then((res) => {
-          console.log(res);
-        })
-        .catch((e) => {
-          console.log(e);
-        });
-    },
-  });
+      onSubmit: async (values, action) => {
+        await sendLoginData(values.email, values.password)
+          .then((res) => {
+            if (res.token) {
+              const token = res.token;
+              setToken(token);
+              navigate("/");
+            }
+            console.log("res is ", res);
+
+            if (res.message) {
+              dispatch(setErrorMessage(res.message));
+              dispatch(showErrorPage(true));
+            }
+          })
+          .catch((e) => {
+            console.log("hey this is error from Login", e);
+          });
+      },
+    });
 
   return (
     <div className={styles.container}>
@@ -55,7 +76,11 @@ const LoginForm = () => {
               onChange={handleChange}
               onBlur={handleBlur}
               className={errors.email && touched.email ? styles.input__err : ""}
+              autoComplete='off'
             />
+            {errors.email && touched.email ? (
+              <p className={styles.form__err__msg}>{errors.email} </p>
+            ) : null}
           </div>
           <div className={styles.form__input}>
             <label htmlFor='email'>Password</label>
@@ -66,8 +91,14 @@ const LoginForm = () => {
               value={values.password}
               onChange={handleChange}
               onBlur={handleBlur}
-              className={errors.password && touched.password ? styles.input__err : ""}
+              className={
+                errors.password && touched.password ? styles.input__err : ""
+              }
+              autoComplete='off'
             />
+            {errors.password && touched.password ? (
+              <p className={styles.form__err__msg}>{errors.password} </p>
+            ) : null}
           </div>
           <div className={styles.submit__btn}>
             <button type='submit'>Sign In</button>

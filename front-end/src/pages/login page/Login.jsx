@@ -3,6 +3,8 @@ import styled from "styled-components";
 import AuthHeader from "./../../components/AuthHeader";
 import LoginForm from "./LoginForm";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+import ErrorInfo from "../../components/ErrorInfo";
 
 const Main = styled.div`
   position: relative;
@@ -15,6 +17,12 @@ const Login = () => {
     navigate("/auth/signup");
   };
 
+  const errPopupCloseHandle = ()=>{
+    
+  }
+
+  const isError = useSelector((state) => state.login.isError);
+  const errMsg = useSelector((state) => state.login.errMsg);
   return (
     <Main>
       <AuthHeader
@@ -23,6 +31,7 @@ const Login = () => {
         btnClassName={"btn-primary"}
         click={goToSignup}
       />
+      {isError ? <ErrorInfo Message={errMsg} /> : ""}
 
       <LoginForm />
     </Main>

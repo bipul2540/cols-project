@@ -5,7 +5,7 @@ import { signupError } from "../state/authFeatures/signupSlice";
 import { useDispatch } from "react-redux";
 import { RiCloseCircleLine } from "react-icons/ri";
 
-const ErrorInfo = () => {
+const ErrorInfo = ({ Message }) => {
   const dispatch = useDispatch();
   const handleCloseClick = () => {
     dispatch(signupError(false));
@@ -19,7 +19,7 @@ const ErrorInfo = () => {
         </div>
         <div className={styles.info}>
           <h3 className={styles.err_heading}>Error</h3>
-          <p className={styles.err_msg}>This Email id is Already registered.</p>
+          <p className={styles.err_msg}>{Message}.</p>
         </div>
         <div className={styles.buttons} onClick={handleCloseClick}>
           CLOSE
