@@ -29,29 +29,26 @@ const LoginForm = () => {
       validationSchema: userSchema,
 
       onSubmit: async (values, action) => {
-        await sendLoginData(values.email, values.password)
-          .then((res) => {
-            if (res.token) {
-              const token = res.token;
-              setToken(token);
-              navigate("/");
-            }
-            console.log("res is ", res);
+        const response = await sendLoginData(values.email, values.password);
 
-            if (res.message) {
-              dispatch(setErrorMessage(res.message));
-              dispatch(showErrorPage(true));
-            }
-          })
-          .catch((e) => {
-            console.log("hey this is error from Login", e);
-          });
+        const res = response.result;
+        if (res.response && res.response.status === 401) {
+          console.log(res.response.data.message);
+          dispatch(setErrorMessage(res.response.data.message));
+          dispatch(showErrorPage(true));
+        }
+
+        if (res.status === 200) {
+          console.log(res.data.token);
+          setToken(res.data.token);
+          navigate("/");
+        }
       },
     });
 
   return (
     <div className={styles.container}>
-      <h1 className={styles.heading}>Sign up</h1>
+      <h1 className={styles.heading}>Sign In</h1>
       <div className={styles.google_btn}>
         <Button
           btnText={`Sign in using google`}

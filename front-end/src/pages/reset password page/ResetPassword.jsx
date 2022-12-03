@@ -7,6 +7,7 @@ import SuccessInfo from "./../../components/SuccessInfo";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { setError, setSuccess } from "../../state/authFeatures/resetPassSlice";
+import NewPasswordEntryPage from "./NewPasswordEntryPage";
 
 const Main = styled.div`
   position: relative;
@@ -16,6 +17,8 @@ const ResetPassword = () => {
   const dispatch = useDispatch();
   const errMsg = useSelector((state) => state.resetPass.sendEmailError);
   const succMsg = useSelector((state) => state.resetPass.sendEmailSuccess);
+
+  const isPagePopup = useSelector((state) => state.resetPass.isPagePopup);
 
   if (succMsg) {
     dispatch(setError(""));
@@ -27,6 +30,7 @@ const ResetPassword = () => {
       {errMsg ? <ErrorInfo Message={errMsg} /> : ""}
       {succMsg ? <SuccessInfo Message={succMsg} /> : ""}
 
+      {isPagePopup ? <NewPasswordEntryPage /> : ""}
       <ResetPasswordForm />
     </Main>
   );

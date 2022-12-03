@@ -1,0 +1,36 @@
+ 
+const routes = useRoutes([
+    {
+      path: "/",
+      element: <PrivateRoutes />,
+      children: [
+        {
+          index: true,
+          path: "/",
+          element: <Home />,
+        },
+      ],
+    },
+
+    {
+      path: "/auth",
+      element: <AuthLandingPage />,
+
+      children: [
+        {
+          path: "signup",
+          element: <SignUp />,
+        },
+        {
+          path: "login",
+          element: <Login />,
+        },
+        {
+          path: "forgot-password",
+          element: <ResetPassword />,
+        },
+      ],
+    },,
+  ]);
+
+  return routes;

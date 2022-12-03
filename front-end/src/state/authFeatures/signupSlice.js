@@ -5,6 +5,7 @@ const initialState = {
   isSignupSuccess: false,
   OtpPagePopup: false,
   token: "",
+  signupErrorMsg: "",
 };
 
 export const signupSlice = createSlice({
@@ -25,9 +26,18 @@ export const signupSlice = createSlice({
     signupToken: (state, action) => {
       state.signupToken = action.payload;
     },
+
+    signupErrorMsg: (state, action) => {
+      state.signupErrorMsg = action.payload;
+    },
   },
 });
 
-export const { signupError, signupSuccess, OtpPagePopup, signupToken } =
-  signupSlice.actions;
+export const {
+  signupError,
+  signupSuccess,
+  OtpPagePopup,
+  signupToken,
+  signupErrorMsg,
+} = signupSlice.actions;
 export default signupSlice.reducer;

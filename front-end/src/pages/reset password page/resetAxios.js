@@ -25,3 +25,10 @@ export const verifyOtp = async (email, otp) => {
 
   return { result };
 };
+
+
+
+export const changePassword = async (email, password, confirmPassword, verificationString)=>{
+
+    const result =  await axios.post("http://localhost:8080/api/otp-verified/change-password")
+}

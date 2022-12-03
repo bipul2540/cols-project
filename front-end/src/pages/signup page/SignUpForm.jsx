@@ -11,6 +11,7 @@ import { useDispatch } from "react-redux";
 import {
   OtpPagePopup,
   signupError,
+  signupErrorMsg,
   signupSuccess,
 } from "../../state/authFeatures/signupSlice";
 import { useToken } from "../../utils/useToken";
@@ -32,28 +33,26 @@ const SignUpForm = () => {
       validationSchema: userSchema,
 
       onSubmit: async (values, action) => {
-        await sendSignupData(
+        const response = await sendSignupData(
           values.name,
           values.email,
           values.password,
           values.confirmPassword
-        )
-          .then((res) => {
-            if (res.message) {
-              console.log(res.message);
-              dispatch(signupError(true));
-            }
-            if (res.token) {
-              setToken(res.token);
-              dispatch(signupSuccess(true));
-              setTimeout(() => {
-                dispatch(OtpPagePopup(true));
-              }, 5000);
-            }
-          })
-          .catch((e) => {
-            console.log(e);
-          });
+        );
+        const res = response.result;
+
+        if (res.status === 200) {
+          setToken(res.data.token);
+          dispatch(signupSuccess(true));
+          setTimeout(() => {
+            dispatch(OtpPagePopup(true));
+          }, 5000);
+        }
+
+        if (res.response && res.response.status === 409) {
+          dispatch(signupError(true));
+          dispatch(signupErrorMsg(res.response.data.message));
+        }
       },
     });
 

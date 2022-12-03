@@ -9,7 +9,7 @@ export const sendSignupData = async (
   confirmPassword
 ) => {
   console.log(name, email, password);
-  const res = await axios
+  const result = await axios
     .post("http://localhost:8080/api/signup", {
       name: name,
       email: email,
@@ -32,11 +32,10 @@ export const sendSignupData = async (
             console.log(e);
           });
       }
-      return reponse.data;
+      return reponse;
     })
     .catch((e) => {
-      return e.response.data;
+      return e;
     });
-  console.log(res);
-  return res;
+  return { result };
 };

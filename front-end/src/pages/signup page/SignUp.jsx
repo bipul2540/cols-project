@@ -20,6 +20,8 @@ const SignUp = () => {
   const isSuccess = useSelector((state) => state.signup.isSignupSuccess);
   const isPopup = useSelector((state) => state.signup.OtpPagePopup);
 
+  const signupErrMsg = useSelector((state) => state.signup.signupErrorMsg);
+
   const goToLoginPageClick = () => {
     navigate("/auth/login");
   };
@@ -33,7 +35,11 @@ const SignUp = () => {
         click={goToLoginPageClick}
       />
 
-      {isError && isSuccess === false ? <ErrorInfo Message /> : ""}
+      {isError && isSuccess === false ? (
+        <ErrorInfo Message={signupErrMsg} />
+      ) : (
+        ""
+      )}
       {isSuccess ? (
         <SuccessInfo Message='your account has been successfully created' />
       ) : (

@@ -17,7 +17,7 @@ export const changePasswordRoute = {
     if (!user) {
       return res
         .status(400)
-        .json({ message: "Something Went wrong!!! please try again..." });
+        .json({ message: "User not found..." });
     }
 
     if (user.resetPassword.isOtpVerified === false) {

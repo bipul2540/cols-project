@@ -7,7 +7,11 @@ import { useState } from "react";
 import { userSchema } from "../../utils/Input validations/resetPasswordForm";
 import { sendEmailOtp, verifyOtp } from "./resetAxios";
 import { useDispatch, useSelector } from "react-redux";
-import { setError, setSuccess } from "../../state/authFeatures/resetPassSlice";
+import {
+  popupPage,
+  setError,
+  setSuccess,
+} from "../../state/authFeatures/resetPassSlice";
 import { useNavigate } from "react-router-dom";
 
 const ResetPasswordForm = () => {
@@ -46,23 +50,26 @@ const ResetPasswordForm = () => {
   const handleContinueClick = async () => {
     const response = await verifyOtp(values.email, values.otp);
     const data = response.result;
-console.log(data);
+    console.log(data);
     if (data.response && data.response.status === 404) {
-      dispatch(setSuccess(""))
+      dispatch(setSuccess(""));
       dispatch(setError("Wrong Otp entered, please try again."));
     }
     if (data.status === 200) {
-      dispatch(setSuccess("Successfully verified."))
-      dispatch(setError(""))
-      setTimeout(() => {
-        navigate("/auth/reset-password");
-      }, 5000);
+      dispatch(setSuccess("Successfully verified."));
+      dispatch(setError(""));
+      dispatch(popupPage(true));
+      setTimeout(() => {}, 5000);
     }
+  };
+
+  const HandleBackToLogin = () => {
+    navigate("/auth/login");
   };
 
   return (
     <div className={styles.mainContainer}>
-      <h1 className={styles.heading}>ForgotPassword</h1>
+      <h1 className={styles.heading}>Forgot Password</h1>
       <p className={styles.info}>
         Enter the Email associated with your account and will sned and email
         with instrution to reset yor password
@@ -126,12 +133,12 @@ console.log(data);
           </div>
 
           <div className={styles.btn__design}>
-            <p className={styles.go__back}>
+            <p className={styles.go__back} onClick={HandleBackToLogin}>
               <IoIosArrowRoundBack /> Back to log in
             </p>
             <button
               className={styles.form__sendEmailbtn}
-              type='button'
+              type='submit'
               onClick={handleContinueClick}>
               continue <IoIosArrowRoundForward />
             </button>

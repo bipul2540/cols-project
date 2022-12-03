@@ -1,4 +1,4 @@
-import { useRoutes } from "react-router-dom";
+import { Route, Routes, useRoutes } from "react-router-dom";
 import Home from "./pages/home page/Home";
 import SignUp from "./pages/signup page/SignUp";
 import Login from "./pages/login page/Login";
@@ -6,53 +6,44 @@ import { PrivateRoutes } from "./utils/PrivateRoutes";
 import { useUser } from "./utils/useUser";
 import AuthLandingPage from "./pages/AuthLandingPage";
 import ResetPassword from "./pages/reset password page/ResetPassword";
+import { useNavigate } from "react-router-dom";
+
+import UserAlreadyLoggedIn from "./pages/UserAlreadyLoggedIn";
+import { useEffect, useState } from "react";
 
 function App() {
+  const navigate = useNavigate();
   const user = useUser();
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  if (user) {
+    useEffect(() => {
+      setIsAuthenticated(user.isVerified);
+    }, []);
+  }
+  console.log(user);
 
-  const routes = useRoutes([
-    {
-      path: "/",
-      element: <PrivateRoutes />,
-      children: [
-        {
-          index: true,
-          path: "/",
-          element: <Home />,
-        },
-        {
-          path: "/profile",
-          element: <h2>I am Profile</h2>,
-        },
-      ],
-    },
+  return (
+    <Routes>
+      <Route path='/' element={<PrivateRoutes />}>
+        <Route path='/' index element={<Home />} />
+      </Route>
 
-    {
-      path: "/auth",
-      element: <AuthLandingPage />,
-      children: [
-        {
-          path: "signup",
-          element: <SignUp />,
-        },
-        {
-          path: "login",
-          element: <Login />,
-        },
-        {
-          path: "forgot-password",
-          element: <ResetPassword />,
-        },
+      {/* AUTH ROUTING  */}
+      <Route path='/auth' element={<AuthLandingPage />}>
+        <Route
+          index
+          path='signup'
+          element={isAuthenticated ? <UserAlreadyLoggedIn /> : <SignUp />}
+        />
+        <Route
+          path='login'
+          element={isAuthenticated ? <UserAlreadyLoggedIn /> : <Login />}
+        />
 
-        {
-          path: "reset-password",
-          element: <h1>Hey this is reset page</h1>,
-        },
-      ],
-    },
-  ]);
-
-  return routes;
+        <Route path='forgot-password' element={<ResetPassword />} />
+      </Route>
+    </Routes>
+  );
 }
 
 export default App;

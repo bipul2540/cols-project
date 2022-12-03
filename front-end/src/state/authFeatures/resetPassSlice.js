@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   sendEmailError: "",
   sendEmailSuccess: "",
+  isPagePopup: false,
 };
 
 export const resetPassSlice = createSlice({
@@ -16,9 +17,13 @@ export const resetPassSlice = createSlice({
     setSuccess: (state, action) => {
       state.sendEmailSuccess = action.payload;
     },
+
+    popupPage: (state, action) => {
+      state.isPagePopup = action.payload;
+    },
   },
 });
 
-export const { setError, setSuccess } = resetPassSlice.actions;
+export const { setError, setSuccess, popupPage } = resetPassSlice.actions;
 
 export default resetPassSlice.reducer;
