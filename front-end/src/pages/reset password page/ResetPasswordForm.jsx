@@ -13,6 +13,7 @@ import {
   setSuccess,
 } from "../../state/authFeatures/resetPassSlice";
 import { useNavigate } from "react-router-dom";
+import { authData } from "../../state/authFeatures/userAuthSlice";
 
 const ResetPasswordForm = () => {
   const dispatch = useDispatch();
@@ -49,6 +50,7 @@ const ResetPasswordForm = () => {
 
   const handleContinueClick = async () => {
     const response = await verifyOtp(values.email, values.otp);
+    dispatch(authData({ email: values.email }));
     const data = response.result;
     console.log(data);
     if (data.response && data.response.status === 404) {
