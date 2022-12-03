@@ -43,7 +43,7 @@ body {
   --color-h1: #474646;
   --color-border: hsla(0, 0%, 74%, 0.514);
 
-  --color-danger: #f91f1f;
+  --color-danger: #f92a82;
   --color-danger-bg: #fbedef;
   --color-danger-bg-dark: #cbafb7;
 
@@ -87,4 +87,10 @@ input {
 label {
   font-weight: bold;
   font-size: 0.8rem;
+}
+
+
+input:focus {
+  border: 1px solid var(--color-primary);
+  box-shadow: 0 0 8px var(--color-primary);
 }

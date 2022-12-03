@@ -45,9 +45,6 @@ export const resetPasswordEmailRoute = {
         message: "error in insering otp to the field",
       });
     }
-
-    console.log("result is ", result);
-
     sendEmail({
       from: "robert.david2540@gmail.com",
       to: email,

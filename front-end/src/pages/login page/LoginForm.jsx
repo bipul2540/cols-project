@@ -107,7 +107,10 @@ const LoginForm = () => {
       </div>
 
       <p className={styles.forgot}>
-        Forgotton password? <small>cick here</small>
+        Forgotton password?{" "}
+        <small onClick={() => navigate("/auth/forgot-password")}>
+          cick here
+        </small>
       </p>
     </div>
   );

@@ -5,6 +5,7 @@ import Login from "./pages/login page/Login";
 import { PrivateRoutes } from "./utils/PrivateRoutes";
 import { useUser } from "./utils/useUser";
 import AuthLandingPage from "./pages/AuthLandingPage";
+import ResetPassword from "./pages/reset password page/ResetPassword";
 
 function App() {
   const user = useUser();
@@ -37,6 +38,15 @@ function App() {
         {
           path: "login",
           element: <Login />,
+        },
+        {
+          path: "forgot-password",
+          element: <ResetPassword />,
+        },
+
+        {
+          path: "reset-password",
+          element: <h1>Hey this is reset page</h1>,
         },
       ],
     },
