@@ -33,13 +33,11 @@ const LoginForm = () => {
 
         const res = response.result;
         if (res.response && res.response.status === 401) {
-          console.log(res.response.data.message);
           dispatch(setErrorMessage(res.response.data.message));
           dispatch(showErrorPage(true));
         }
 
         if (res.status === 200) {
-          console.log(res.data.token);
           setToken(res.data.token);
           navigate("/");
         }

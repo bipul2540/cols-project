@@ -24,7 +24,6 @@ const SignupOtpVerifyPage = () => {
   };
 
   const email = useSelector((state) => state.userAuth.authData);
-  console.log(email);
   const [, setToken] = useToken();
 
   const { values, errors, handleChange, handleSubmit, handleBlur } = useFormik({
@@ -40,7 +39,7 @@ const SignupOtpVerifyPage = () => {
         .then((res) => {
           const { token } = res.data;
           setToken(token);
-          console.log(res.data);
+   
 
           if (token) {
             navigate("/auth/login");

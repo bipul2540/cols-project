@@ -20,8 +20,6 @@ function App() {
       setIsAuthenticated(user.isVerified);
     }, []);
   }
-  console.log(user);
-
   return (
     <Routes>
       <Route path='/' element={<PrivateRoutes />}>
