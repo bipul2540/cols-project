@@ -13,6 +13,7 @@ import {
   showErrorPage,
 } from "../../state/authFeatures/loginSlice";
 import { useDispatch } from "react-redux";
+import toast from "react-hot-toast";
 
 const LoginForm = () => {
   const [, setToken] = useToken();
@@ -39,6 +40,7 @@ const LoginForm = () => {
 
         if (res.status === 200) {
           setToken(res.data.token);
+          toast.success("you have successfully logged in.");
           navigate("/");
         }
       },

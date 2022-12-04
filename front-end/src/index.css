@@ -39,7 +39,14 @@ body {
   --text-gray-very-light: #bec3c3;
   /* TEXT COLORS END */
 
-  --input-bg: #f6f6f6;
+
+  /* designing color */
+  --color-1: #32bea6;
+  --color-2: #deeef358;
+  --color-3: #3e0e49;
+  /* desing colos */
+
+  --input-bg: #f0f2f5;
   --icon-bg: hsla(171, 15%, 91%, 0.698);
   --color-h1: #474646;
   --color-border: hsla(0, 0%, 74%, 0.514);

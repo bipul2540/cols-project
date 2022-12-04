@@ -10,6 +10,7 @@ import { useNavigate } from "react-router-dom";
 
 import UserAlreadyLoggedIn from "./pages/UserAlreadyLoggedIn";
 import { useEffect, useState } from "react";
+import { Toaster } from "react-hot-toast";
 
 function App() {
   const navigate = useNavigate();
@@ -21,26 +22,29 @@ function App() {
     }, []);
   }
   return (
-    <Routes>
-      <Route path='/' element={<PrivateRoutes />}>
-        <Route path='/' index element={<Home />} />
-      </Route>
+    <>
+      <Toaster position='top-right' reverseOrder={false} />
+      <Routes>
+        <Route path='/' element={<PrivateRoutes />}>
+          <Route path='/' index element={<Home />} />
+        </Route>
 
-      {/* AUTH ROUTING  */}
-      <Route path='/auth' element={<AuthLandingPage />}>
-        <Route
-          index
-          path='signup'
-          element={isAuthenticated ? <UserAlreadyLoggedIn /> : <SignUp />}
-        />
-        <Route
-          path='login'
-          element={isAuthenticated ? <UserAlreadyLoggedIn /> : <Login />}
-        />
+        {/* AUTH ROUTING  */}
+        <Route path='/auth' element={<AuthLandingPage />}>
+          <Route
+            index
+            path='signup'
+            element={isAuthenticated ? <UserAlreadyLoggedIn /> : <SignUp />}
+          />
+          <Route
+            path='login'
+            element={isAuthenticated ? <UserAlreadyLoggedIn /> : <Login />}
+          />
 
-        <Route path='forgot-password' element={<ResetPassword />} />
-      </Route>
-    </Routes>
+          <Route path='forgot-password' element={<ResetPassword />} />
+        </Route>
+      </Routes>
+    </>
   );
 }
 

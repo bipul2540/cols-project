@@ -1,0 +1,84 @@
+.mainContainer {
+  position: absolute;
+  top: 4rem;
+  right: 2rem;
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: var(--border-radius);
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+        rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+
+  .container {
+    .profileCard {
+      border: 1px solid var(--color-border);
+      padding: 1rem;
+      border-radius: var(--border-radius);
+      box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+        rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+
+      .title {
+        display: flex;
+        gap: 0.5rem;
+        align-items: center;
+        border-bottom: 1px solid var(--color-border);
+        padding-bottom: 0.6rem;
+
+        .username {
+          font-weight: bold;
+          font-size: 0.9rem;
+        }
+      }
+
+      .linkToProfile {
+        margin-top: 0.6rem;
+        color: var(--color-primary);
+        cursor: pointer;
+        font-size: 0.7rem;
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+.options {
+//   padding: 1rem;
+  .option {
+    display: flex;
+    gap: 2rem;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    align-items: center;
+    margin: 1rem 0rem;
+    border: 1px solid #fff;
+    transition: all ease 0.4s;
+
+    .iconInfo {
+        font-size: 0.9rem;
+        font-weight: bold;
+    }
+
+    .iconBox {
+      padding: 0.5rem;
+      border-radius: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: var(--icon-bg);
+      .icon {
+        font-size: 1.2rem;
+        transition: all ease 0.4s;
+      }
+    }
+  }
+}
+
+
+.option:hover{
+    background-color: var(--color-2);
+    border-radius: var(--border-radius);
+
+    .icon{
+        color: var(--color-primary);
+    }
+}
+

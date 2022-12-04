@@ -1,12 +1,106 @@
-.mainContainer{
-    background-color: #fff;
-    height: 60px;
-    width: 100%;
-    position: fixed;
+.mainContainer {
+  background-color: #fff;
+  height: 60px;
+  width: 100%;
+  position: fixed;
 
-    .container{
-        border: 1px solid maroon;
-        height: inherit;
+  .container {
+    height: inherit;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5rem
+    ;
 
+    .logoName {
+      width: 5rem;
     }
+
+    .searchbar {
+      //   position: relative;
+      background-color: var(--input-bg);
+      display: flex;
+      align-items: center;
+      border-radius: 5rem;
+
+
+      .search__icon {
+        margin-left: 0.7rem;
+      }
+      .search__input {
+        margin-top: 0;
+        background-color: transparent;
+        font-size: 1rem;
+      }
+      :focus {
+        box-shadow: none;
+        border: none;
+        font-weight: bold;
+      }
+    }
+
+    .iconOptions {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 1rem;
+      flex: 2;
+
+      .messageIcon {
+        padding: 0.5rem;
+        border-radius: 10rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--icon-bg);
+        cursor: pointer;
+      }
+
+      .notificationIcon {
+        padding: 0.5rem;
+        border-radius: 10rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--icon-bg);
+        cursor: pointer;
+        position: relative;
+
+        span {
+          position: absolute;
+          top: -8px;
+          color: var(--color-secondry);
+          right: 0px;
+          border-radius: 10rem;
+          width: 1.2rem;
+          height: 1.2rem;
+          background-color: #dd2d4a;
+          font-size: 0.8rem;
+          color: #fff;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          font-weight: bolder;
+        }
+      }
+
+      .profileIcon {
+        position: relative;
+        padding: 0.4rem;
+        cursor: pointer;
+
+        .drop {
+          position: absolute;
+          bottom: 0.8rem;
+          right: -0.4rem;
+        }
+      }
+    }
+  }
+}
+
+.icon {
+  font-size: 1.4rem;
 }

@@ -29,7 +29,7 @@ export const loginRoute = {
       );
     }
 
-    const { _id: id, passwordHash, salt, isVerified } = user;
+    const { _id: id, name, passwordHash, salt, isVerified } = user;
     const pepper = process.env.PEPPER_STRING;
 
     const isPassCorrect = await bcrypt.compare(
@@ -46,6 +46,7 @@ export const loginRoute = {
     jwt.sign(
       {
         id,
+        name,
         email,
         isVerified,
       },
