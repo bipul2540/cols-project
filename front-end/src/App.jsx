@@ -11,10 +11,10 @@ import { useNavigate } from "react-router-dom";
 import UserAlreadyLoggedIn from "./pages/UserAlreadyLoggedIn";
 import { useEffect, useState } from "react";
 import { Toaster } from "react-hot-toast";
-import Dashboard from "./pages/home page/Content Pages/Dashboard";
-import Community from "./pages/home page/Content Pages/Community";
-import Trending from "./pages/home page/Content Pages/Trending";
-import SolveProblems from "./pages/home page/Content Pages/SolveProblems";
+import Dashboard from "./pages/home page/Content Pages/dashboard/Dashboard";
+import Community from "./pages/home page/Content Pages/community/Community";
+import Trending from "./pages/home page/Content Pages/trending/Trending";
+import SolveProblems from "./pages/home page/Content Pages/problem/SolveProblems";
 import Upskill from "./pages/home page/Content Pages/Upskill";
 
 function App() {
@@ -24,7 +24,7 @@ function App() {
   if (user) {
     useEffect(() => {
       setIsAuthenticated(user.isVerified);
-    }, []);
+    }, [user]);
   }
   return (
     <>
