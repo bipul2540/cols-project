@@ -10,7 +10,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 5rem
+    gap: 1rem
     ;
 
     .logoName {
@@ -18,7 +18,7 @@
     }
 
     .searchbar {
-      //   position: relative;
+      position: relative;
       background-color: var(--input-bg);
       display: flex;
       align-items: center;

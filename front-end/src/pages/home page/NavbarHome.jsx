@@ -1,6 +1,6 @@
 import React from "react";
 import Logo from "../../components/Logo";
-import styles from "./../../style/Navbar.module.scss";
+import styles from "./../../style/NavbarHome.module.scss";
 import image from "./../../assets/logo-name.svg";
 import { FiSearch } from "react-icons/fi";
 import { FaFacebookMessenger } from "react-icons/fa";
@@ -10,12 +10,18 @@ import Avatar from "react-avatar";
 import LogoutCard from "./LogoutCard";
 import { useState } from "react";
 import { useUser } from "../../utils/useUser";
+import SearchItems from "../../components/Home components/SearchItems";
 
-const Navbar = () => {
+const NavbarHome = () => {
   const [isLogoutCardActive, setIsLogoutCardActive] = useState(false);
+  const [isInputEntered, setIsInputEntered] = useState(false);
 
   const handleProfilClick = () => {
     setIsLogoutCardActive(!isLogoutCardActive);
+  };
+
+  const handleInput = () => {
+    setIsInputEntered(!isInputEntered);
   };
 
   const user = useUser();
@@ -27,7 +33,12 @@ const Navbar = () => {
 
         <div className={styles.searchbar}>
           <FiSearch className={styles.search__icon} />
-          <input type='text' className={styles.search__input} />
+          <input
+            type='text'
+            className={styles.search__input}
+            onFocus={handleInput}
+          />
+          {isInputEntered && <SearchItems />}
         </div>
 
         <div className={styles.iconOptions}>
@@ -57,4 +68,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default NavbarHome;

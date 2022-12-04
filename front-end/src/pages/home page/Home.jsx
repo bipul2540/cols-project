@@ -1,10 +1,12 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
-import Navbar from "./Navbar";
+// import Navbar from "./Navbar";
+import Navbar from "../../components/Navbar";
 import Sidebar from "./Sidebar";
 import styled from "styled-components";
 import { useUser } from "../../utils/useUser";
 import Aside from "./Aside";
+import CreatePostButton from "../../components/Home components/CreatePostButton";
 
 const Main = styled.div`
   display: flex;
@@ -36,6 +38,7 @@ const Home = () => {
         </Content>
         <Aside />
       </Center>
+      <CreatePostButton />
     </Main>
   );
 };
