@@ -11,6 +11,11 @@ import { useNavigate } from "react-router-dom";
 import UserAlreadyLoggedIn from "./pages/UserAlreadyLoggedIn";
 import { useEffect, useState } from "react";
 import { Toaster } from "react-hot-toast";
+import Dashboard from "./pages/home page/Content Pages/Dashboard";
+import Community from "./pages/home page/Content Pages/Community";
+import Trending from "./pages/home page/Content Pages/Trending";
+import SolveProblems from "./pages/home page/Content Pages/SolveProblems";
+import Upskill from "./pages/home page/Content Pages/Upskill";
 
 function App() {
   const navigate = useNavigate();
@@ -26,7 +31,13 @@ function App() {
       <Toaster position='top-right' reverseOrder={false} />
       <Routes>
         <Route path='/' element={<PrivateRoutes />}>
-          <Route path='/' index element={<Home />} />
+          <Route path='/' element={<Home />}>
+            <Route path='/' index element={<Dashboard />} />
+            <Route path='community' element={<Community />} />
+            <Route path='trending' element={<Trending />} />
+            <Route path='solve-problems' element={<SolveProblems />} />
+            <Route path='upskills' element={<Upskill />} />
+          </Route>
         </Route>
 
         {/* AUTH ROUTING  */}

@@ -4,31 +4,37 @@ import Navbar from "./Navbar";
 import Sidebar from "./Sidebar";
 import styled from "styled-components";
 import { useUser } from "../../utils/useUser";
+import Aside from "./Aside";
 
-const Main = styled.div``;
-const Content = styled.div`
-  font-size: 2rem;
-  position: absolute;
-  top: 70px;
-  left: 12rem;
-  z-index: -999;
+const Main = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding-right: 2rem;
 `;
 
 const Center = styled.div`
-  width: 100%;
   display: flex;
-  gap: 2rem;
+  margin-top: 4rem;
+  gap: 1rem;
+`;
+
+const Content = styled.div`
+  width: 100%;
+  flex: 2;
 `;
 const Home = () => {
   const user = useUser();
-  console.log(user)
+  console.log(user);
 
   return (
     <Main>
       <Navbar />
       <Center className='center__container'>
         <Sidebar />
-        <Content>Lorem, ipsum dolor sit amet consectetur</Content>
+        <Content>
+          <Outlet />
+        </Content>
+        <Aside />
       </Center>
     </Main>
   );

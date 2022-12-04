@@ -1,7 +1,51 @@
-.mainContainer{
-    height:calc(100vh - 60px);
-    background-color: #fff;
-    width: 10rem;
-    bottom: 0;
-    position: fixed;
+.mainContainer {
+
+  .container {
+    padding: 0rem 0;
+
+    .option {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1rem;
+      padding: 0.5rem 2rem 0.5rem 2rem;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      border-radius: 0px var(--border-radius) var(--border-radius) 0 ;
+
+      .icon_field {
+        .icon {
+          font-size: 1.5rem;
+        }
+      }
+
+
+      .icon__text{
+      }
+    }
+  }
+}
+
+
+.option:hover{
+    background-color: var(--color-2);
+}
+
+a{
+    color: inherit;
+}
+
+
+.active{
+    border-left: 5px solid var(--color-primary);
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+}
+
+.active {
+    .icon{
+        color: var(--color-primary);
+    }
 }
