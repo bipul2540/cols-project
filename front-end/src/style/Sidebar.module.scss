@@ -1,7 +1,16 @@
 .mainContainer {
+    margin-top: -0.1rem;
 
   .container {
     padding: 0rem 0;
+    
+    @media (max-width: 780px) {
+        // padding: 1rem;
+        background-color: #fff;
+        height: calc(100vh - 66px);
+        margin-top: 0;
+
+    }
 
     .option {
       display: flex;
@@ -15,6 +24,12 @@
       align-items: center;
       border-radius: 0px var(--border-radius) var(--border-radius) 0 ;
 
+      @media (max-width: 780px) {
+        padding: 0.5rem 1rem;
+        margin-top: 0;
+    }
+
+
       .icon_field {
         .icon {
           font-size: 1.5rem;
@@ -24,7 +39,6 @@
     }
   }
 }
-
 
 .option:hover{
     background-color: var(--color-2);
@@ -44,5 +58,32 @@ a{
 .active {
     .icon{
         color: var(--color-primary);
+    }
+}
+
+
+
+
+.icon__text{
+    @media (max-width: 780px) {
+        opacity: 0;
+        pointer-events: none;
+        position: absolute;
+        left: 3rem;
+        background-color: rgba(0, 0, 0, 0.723);
+        color: white;
+        font-weight: 400;
+        padding: 0.4rem 0.6rem;
+        transition: all ease 0.4s;
+        border-radius: 2rem;
+    }
+  }
+
+
+  @media (max-width: 768px) {
+ 
+    .option:hover .icon__text{
+        opacity: 1;
+        pointer-events: auto;
     }
 }
